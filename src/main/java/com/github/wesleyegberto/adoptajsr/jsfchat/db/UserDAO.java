@@ -38,17 +38,17 @@ public class UserDAO {
     private Instance<Map> rawMap;
 
     @Inject @ApplicationMap
-    private Instance<Map<String, Object>> map;
+    private Instance<Map<String, Object>> typedMap;
     
     public UserDAO() {
     }
     
     @PostConstruct
     public void postConstruct() {
-	System.out.println("[UserDAO] Map is resolvable: " + rawMap.isResolvable());
-	System.out.println("[UserDAO] Map is ambiguous: " + rawMap.isAmbiguous());
-	System.out.println("[UserDAO] Map<String, Object> is resolvable: " + map.isResolvable());
-	System.out.println("[UserDAO] Map<String, Object> is ambiguous: " + map.isAmbiguous());
+	System.out.printf("[UserDAO] Raw Map resolvable: %b, ambigous: %b, unsatisfied: %b\n",
+		rawMap.isResolvable(), rawMap.isAmbiguous(), rawMap.isUnsatisfied());
+	System.out.printf("[UserDAO] Typed Map resolvable: %b, ambigous: %b, unsatisfied: %b\n",
+		typedMap.isResolvable(), typedMap.isAmbiguous(), typedMap.isUnsatisfied());
     }
     
     public boolean isNicknameUsed(String nickname) {

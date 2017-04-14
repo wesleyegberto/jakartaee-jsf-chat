@@ -20,12 +20,12 @@
             <version>4.0.0-b05</version>
         </dependency>
 		-->
-        <!-- JSF 2.3 -->
+        <!-- JSF 2.3
         <dependency>
             <groupId>javax.faces</groupId>
             <artifactId>javax.faces-api</artifactId>
             <version>2.3</version>
-        </dependency>
+        </dependency> -->
         <dependency>
             <groupId>org.glassfish</groupId>
             <artifactId>javax.faces</artifactId>
