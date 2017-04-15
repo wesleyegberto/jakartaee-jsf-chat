@@ -2,7 +2,6 @@ package com.github.wesleyegberto.adoptajsr.jsfchat;
 
 import java.util.Map;
 
-import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
 import javax.faces.annotation.ApplicationMap;
 import javax.faces.context.FacesContext;

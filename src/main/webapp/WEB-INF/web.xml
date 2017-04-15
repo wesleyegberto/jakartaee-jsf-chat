@@ -43,12 +43,13 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
-    To disable:
+     -->
+    <!-- To disable:
     <context-param>
         <param-name>javax.faces.DISABLE_FACESSERVLET_TO_XHTML</param-name>
         <param-value>true</param-name>
-    </context-param>
-    -->
+    </context-param> -->
+   
 
     <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>

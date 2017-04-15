@@ -28,7 +28,7 @@ public class IndexController {
     private UserDAO userDao;
 
     @Inject @Any
-    private Instance<Map<?,?>> rawMap;
+    private Instance<Map> rawMap;
 
 
     @Inject @Any
@@ -45,7 +45,7 @@ public class IndexController {
 	System.out.printf("[IndexController] Typed Map resolvable: %b, ambigous: %b, unsatisfied: %b\n",
 		typedMap.isResolvable(), typedMap.isAmbiguous(), typedMap.isUnsatisfied());
 
-	Instance<Map<?, ?>> qualifRawMap = rawMap.select(new AnnotationLiteral<ApplicationMap>() {});
+	Instance<Map> qualifRawMap = rawMap.select(new AnnotationLiteral<ApplicationMap>() {});
 	System.out.printf("[IndexController] Raw Map Qualif resolvable: %b, ambigous: %b, unsatisfied: %b\n",
 		qualifRawMap.isResolvable(), qualifRawMap.isAmbiguous(), qualifRawMap.isUnsatisfied());
 
