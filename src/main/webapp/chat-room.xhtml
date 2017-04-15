@@ -8,18 +8,74 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
  		<title>Welcome to JSF 2.3 Chat!</title>
  		<h:outputStylesheet library="css" name="bootstrap.min.css" />
+ 		<script>
+ 			var shouldConnect = true;
+
+ 			function autoconnect() {
+ 	 			return shouldConnect;
+ 	 		}
+ 	 		
+ 			// Will handle the onmessage
+			function handleMessage(message, channelName, messageEvent) {
+				console.log(message);
+			}
+
+			function handleClose(code, channel, event) {
+				console.log('Handle close: ' + code);
+				console.log
+				shouldConnect = false;
+				if (code == -1) {
+					console.log('Websockets not supported by client')
+				} else if (code == 1000) { // Normal close (as result of expired session or view)
+					console.log('Normal close, will try to reconnect');
+				} else {
+					// Abnormal close reason (as result of an error)
+					alert('Error during the reconnect!')
+				}
+			}
+ 		</script>
  	</head>
     <body jsf:id="body">
 	    <div class="container">
 	    	<div class="jumbotron">
 				<h1>Welcome to JSF 2.3 Chat</h1>
-				<p>#{chatController.message}</p>
 			</div>
-			<div class="row">
-				<div class="col-sm-12 center-block"><h2>Please, talk!</h2></div>
-			</div>
-			<form class="form-horizontal" jsf:id="form" jsf:prependId="false">
-			
+			<form class="form-vertical" jsf:id="form" jsf:prependId="false">
+				<!-- The JSF Socket is only one-way: from Server to Client (Spec 10.4.1.7).
+				We will need to do an AJAX call to broadcast a message  -->
+				<f:websocket channel="chatChannel"
+					onmessage="handleMessage" onclose="handleClose" />
+				
+				<div class="row">
+					<div class="col-sm-12 center-block"><h2>Welcome #{userBean.name}, let's talk!</h2></div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<textarea class="form-control" rows="10" cols="70" jsf:readonly="true" style="resize:none;"
+							jsf:id="chat-history" jsf:name="chat-history">
+						</textarea>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Enter your message"
+								jsf:id="message" jsf:name="message" jsf:value="#{chatController.message}" />
+							<span class="input-group-btn">
+								<button type="button" class="btn btn-primary" jsf:id="btn-send">Send
+									<f:ajax event="click" execute="@this message" render="@this" listener="#{chatController.sendMessage()}" />
+								</button>
+					    	</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-sm-12">
+						<h:messages globalOnly="true" errorClass="alert alert-danger" warnClass="alert alert-warning" infoClass="alert alert-success"
+							style="padding-left:0px;list-style:none;" />
+					</div>
+				</div>
 			</form>
 		</div>
     </body>

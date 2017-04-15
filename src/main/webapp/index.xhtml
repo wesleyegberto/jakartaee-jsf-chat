@@ -20,32 +20,35 @@
 			</div>
 			<form class="form-horizontal" jsf:id="form" jsf:prependId="false">
 				<div class="form-group">
-					<label for="login">Nickname</label>
-					<input type="text" class="form-control" jsf:id="nickname" jsf:value="#{indexController.user.nickname}">
-						<f:ajax onevent="onblur" execute="@this" listener="#{indexController.verifyNicknameUniqueness()}" />
-					</input>	
+					<label for="nickname">Nickname</label>
+					<input type="text" class="form-control" jsf:id="nickname" jsf:name="nickname" jsf:value="#{indexController.user.nickname}"
+						jsf:required="true">
+						<f:ajax event="blur" execute="@this" listener="#{indexController.verifyNicknameUniqueness()}" />
+					</input>
+					<h:message errorClass="form-control alert-danger" for="nickname" />
 					<span id="nickname-error" class="form-control alert-danger" style="display:none">Username is already in use.</span>
 				</div>
 				<div class="form-group">
 					<label for="name">Name</label>
-					<input type="text" class="form-control" jsf:id="name" jsf:value="#{indexController.user.name}" />
-					<h:message  />
+					<input type="text" class="form-control" jsf:id="name" jsf:name="name" jsf:value="#{indexController.user.name}"
+						jsf:required="true" />
+					<h:message errorClass="form-control alert-danger" for="name" />
 				</div>
 				<div class="form-group">
-					<label for="remember">Remember?</label>
-					<input type="checkbox" jsf:id="remember" jsf:value="#{indexController.rememberMe}" />
+					<label for="rememberme">Remember me?</label>
+					<input type="checkbox" jsf:id="rememberme" jsf:name="rememberme" jsf:value="#{indexController.rememberMe}" />
 				</div>
 				<div class="form-group">
-					<button type="submit" class="btn btn-success" jsf:id="btnSignin" jsf:action="#{indexController.signIn()}">Signin</button>
+					<input type="submit" class="btn btn-primary" value="Signin"
+						jsf:rendered="#{not indexController.userAlreadySignedUp}" jsf:action="#{indexController.signIn()}">
+					</input>
+					<h:link styleClass="btn btn-success" rendered="#{indexController.userAlreadySignedUp}" outcome="chat-room?faces-redirect=true">Go to Chat Room</h:link>
 				</div>
-				<div>
-					<h:messages styleClass="alert" errorClass="alert-danger" warnClass="alert-warning" infoClass="alert-success" />
-					<h:outputText value="#{indexController.user}" />
+				<div class="form-group">
+					<h:messages globalOnly="true" errorClass="alert alert-danger" warnClass="alert alert-warning" infoClass="alert alert-success"
+						style="padding-left:0px;list-style:none;" />
 				</div>
 			</form>
-			<!-- 
-			#{applicationScope}
-			-->
 		</div>
     </body>
 </html>

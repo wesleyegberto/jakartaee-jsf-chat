@@ -1,22 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context>
-	<!--
-    
-    When you are deploying Manorrock Chat Webapp on a Tomcat you will need to
-    set the "chatWebsocketUrl" to the appropriate setting below and uncomment
-    the entire block. Note this should be the externally available websocket
-    URL (either of form ws:// or wss://)
-    
-    -->
-    <!--
+	<!--When deploying on Tomcat we will need to set the "chatWebsocketUrl"
+	    to the appropriate setting below and uncomment
+	    the entire block. Note this should be the externally available websocket
+	    URL (either of form ws:// or wss://)
     <Environment 
         name="chatWebsocketUrl" 
         override="false"
         type="java.lang.String"
-        value="ws://localhost:8080/chat/websocket"
-    />
-    -->
-    
+        value="ws://localhost:8080/jsf-chat/websocket"/>
+ 	-->
    <Manager pathname=""/>
    <Resource name="BeanManager"
       auth="Container"

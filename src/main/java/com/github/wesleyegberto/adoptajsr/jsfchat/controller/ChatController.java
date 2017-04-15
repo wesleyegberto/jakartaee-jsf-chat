@@ -1,11 +1,38 @@
 package com.github.wesleyegberto.adoptajsr.jsfchat.controller;
 
-import javax.enterprise.context.RequestScoped;
+import java.util.logging.Logger;
 
-@RequestScoped
+import javax.enterprise.inject.Model;
+import javax.inject.Inject;
+
+import com.github.wesleyegberto.adoptajsr.jsfchat.service.ChatRoom;
+
+@Model
 public class ChatController {
-
+    @Inject
+    private Logger LOG;
+    
+    @Inject
+    private UserBean userBean;
+    
+    @Inject
+    private ChatRoom chatRoom;
+    
+    private String message;
+    
     public ChatController() {
     }
 
+    public String getMessage() {
+	return message;
+    }
+    
+    public void setMessage(String message) {
+	this.message = message;
+    }
+    
+    public void sendMessage() {
+	LOG.info(userBean.getNickname() + " is broadcasting: " + message);
+	chatRoom.broadcastMessage(message);
+    }
 }

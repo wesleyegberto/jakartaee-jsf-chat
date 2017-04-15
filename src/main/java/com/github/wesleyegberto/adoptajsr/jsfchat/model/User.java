@@ -1,11 +1,15 @@
 package com.github.wesleyegberto.adoptajsr.jsfchat.model;
 
+import java.io.Serializable;
+
 /**
  * Chat User.
  * 
  * @author wesley
  */
-public class User {
+public class User implements Serializable {
+    private static final long serialVersionUID = 1L;
+    
     private String nickname;
     private String name;
 

@@ -7,18 +7,19 @@
         <param-value>Development</param-value>
     </context-param>
     
-    <!-- Activate the CDI EL resolving and injection
-    <context-param>
-        <param-name>javax.faces.ENABLE_CDI_RESOLVER_CHAIN</param-name>
-        <param-value>true</param-value>
-    </context-param> -->
-
     <!-- Class level Bean Validation -->
     <context-param>
         <param-name>javax.faces.validator.ENABLE_VALIDATE_WHOLE_BEAN</param-name>
         <param-value>true</param-value>
     </context-param>
+    
+    <!-- CDI resolver due to unfinished integration -->
+    <context-param>
+        <param-name>javax.faces.ENABLE_CDI_RESOLVER_CHAIN</param-name>
+        <param-value>true</param-value>
+    </context-param>
 	
+	<!-- Enable WebSocket (workaround to allow the creation of Endpoints on the fly) -->
     <context-param>
         <param-name>javax.faces.ENABLE_WEBSOCKET_ENDPOINT</param-name>
         <param-value>true</param-value>
@@ -39,17 +40,17 @@
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
-     -->
+    -->
     <!-- To disable:
     <context-param>
         <param-name>javax.faces.DISABLE_FACESSERVLET_TO_XHTML</param-name>
         <param-value>true</param-name>
     </context-param> -->
-   
 
     <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>

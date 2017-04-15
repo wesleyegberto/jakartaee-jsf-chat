@@ -5,8 +5,12 @@ Simple chat to show some new featues JSF 2.3 + CDI 2.0 + Bean Validation 2.0
 
 ### Features
 
-* HTML5 Friendly Markup (not new but not widely used)
-
+* JSF 2.2 - HTML5 Friendly Markup
+* JSF 2.3 - Selectors
+* JSF 2.3 - JS code from managed bean
+* JSF 2.3 - Artifacts injection
+* JSF 2.3 - f:webSocket
+* WebSocket 1.1 - Tomcat already provides
 
 
 #### Some notes
