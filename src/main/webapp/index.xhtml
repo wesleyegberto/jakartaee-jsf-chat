@@ -21,17 +21,25 @@
 			<form class="form-horizontal" jsf:id="form" jsf:prependId="false">
 				<div class="form-group">
 					<label for="login">Nickname</label>
-					<input type="text" class="form-control" jsf:id="nickname" jsf:value="#{indexController.user.nickname}" />
+					<input type="text" class="form-control" jsf:id="nickname" jsf:value="#{indexController.user.nickname}">
+						<f:ajax onevent="onblur" execute="@this" listener="#{indexController.verifyNicknameUniqueness()}" />
+					</input>	
+					<span id="nickname-error" class="form-control alert-danger" style="display:none">Username is already in use.</span>
 				</div>
 				<div class="form-group">
 					<label for="name">Name</label>
 					<input type="text" class="form-control" jsf:id="name" jsf:value="#{indexController.user.name}" />
+					<h:message  />
 				</div>
 				<div class="form-group">
-					<button class="btn btn-success" jsf:id="btnSignin" jsf:action="#{indexController.signIn()}">Signin</button>
-					<h:messages />
+					<label for="remember">Remember?</label>
+					<input type="checkbox" jsf:id="remember" jsf:value="#{indexController.rememberMe}" />
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-success" jsf:id="btnSignin" jsf:action="#{indexController.signIn()}">Signin</button>
 				</div>
 				<div>
+					<h:messages styleClass="alert" errorClass="alert-danger" warnClass="alert-warning" infoClass="alert-success" />
 					<h:outputText value="#{indexController.user}" />
 				</div>
 			</form>

@@ -11,21 +11,17 @@ import com.github.wesleyegberto.adoptajsr.jsfchat.model.User;
 
 @FacesConverter(forClass = User.class, managed = true)
 public class UserConverter implements Converter<User> {
-
     @Inject
-    private UserDAO usersDao;
+    private UserDAO userDao;
     
     @Override
     public User getAsObject(FacesContext context, UIComponent component, String value) {
-	return null;
+	return userDao.getByUsername(value);
     }
 
     @Override
     public String getAsString(FacesContext context, UIComponent component, User value) {
-	System.out.println("[UserConverter] UserDAO injected: " + usersDao);
-	
 	if(value == null || value.getNickname() == null) return "No user";
-	return String.format("%s (%s)", value.getNickname(), value.getName());
+	return value.getNickname();
     }
-
 }

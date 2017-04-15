@@ -7,11 +7,11 @@
         <param-value>Development</param-value>
     </context-param>
     
-    <!-- Activate the CDI EL resolving and injection -->
+    <!-- Activate the CDI EL resolving and injection
     <context-param>
         <param-name>javax.faces.ENABLE_CDI_RESOLVER_CHAIN</param-name>
         <param-value>true</param-value>
-    </context-param>
+    </context-param> -->
 
     <!-- Class level Bean Validation -->
     <context-param>

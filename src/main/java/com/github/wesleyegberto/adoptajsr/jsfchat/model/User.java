@@ -9,6 +9,14 @@ public class User {
     private String nickname;
     private String name;
 
+    public User() {
+    }
+    
+    public User(String nickname, String name) {
+	this.nickname = nickname;
+	this.name = name;
+    }
+
     public String getNickname() {
 	return nickname;
     }

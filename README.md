@@ -2,10 +2,10 @@
 
 Simple chat to show some new featues JSF 2.3 + CDI 2.0 + Bean Validation 2.0
 
+
 ### Features
 
 * HTML5 Friendly Markup (not new but not widely used)
-
 
 
 
