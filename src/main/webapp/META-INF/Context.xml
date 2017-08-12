@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
 <Context>
 	<!--When deploying on Tomcat we will need to set the "chatWebsocketUrl"
 	    to the appropriate setting below and uncomment
@@ -9,10 +10,12 @@
         override="false"
         type="java.lang.String"
         value="ws://localhost:8080/jsf-chat/websocket"/>
- 	-->
+ 	
    <Manager pathname=""/>
    <Resource name="BeanManager"
       auth="Container"
       type="javax.enterprise.inject.spi.BeanManager"
       factory="org.jboss.weld.resources.ManagerObjectFactory"/>
+ 
 </Context>
+-->
