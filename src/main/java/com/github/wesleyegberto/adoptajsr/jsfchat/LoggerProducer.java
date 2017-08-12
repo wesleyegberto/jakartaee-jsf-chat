@@ -6,10 +6,9 @@ import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
 
 public class LoggerProducer {
-
-    @Produces
-    public Logger produceLogger(InjectionPoint ip) {
-	Class<?> clazz = ip.getMember().getDeclaringClass();
-	return Logger.getLogger(clazz.getName());
-    }
+	@Produces
+	public Logger produceLogger(InjectionPoint ip) {
+		Class<?> clazz = ip.getMember().getDeclaringClass();
+		return Logger.getLogger(clazz.getName());
+	}
 }
