@@ -9,14 +9,17 @@
  		<title>Welcome to JSF 2.3 Chat!</title>
  		<h:outputStylesheet library="css" name="bootstrap.min.css" />
  		<script>
+ 			function handleOpen(event) {
+ 	 			console.log(event);
+ 			}
  			function handleMessage(message, channelName, messageEvent) {
 				console.log(message, channelName, messageEvent);
+				var textarea = document.getElementById('chat-history');
+                textarea.scrollTop = textarea.scrollHeight;
 			}
 
 			function handleClose(code, channel, event) {
-				console.log('Handle close: ' + code);
-				console.log
-				shouldConnect = false;
+				console.log('Handle close: ' + code, channel, event);
 				if (code == -1) {
 					console.log('Websockets not supported by client')
 				} else if (code == 1000) { // Normal close (as result of expired session or view)
@@ -32,7 +35,9 @@
 		<!-- The JSF Socket is only one-way: from Server to Client (Spec 10.4.1.7).
 			We will need to do an AJAX call to broadcast a message;
 			Must be at body  -->
-		<f:websocket channel="chatChannel" onmessage="handleMessage" onclose="handleClose" />
+		<f:websocket scope="application" channel="chatChannel" onopen="handleOpen" onmessage="handleMessage" onclose="handleClose" />
+		
+		<f:websocket scope="application" channel="clock" onopen="handleOpen" onmessage="handleMessage" onclose="handleClose" />
 		
 	    <div class="container">
 	    	<div class="jumbotron">
@@ -57,6 +62,9 @@
 							<span class="input-group-btn">
 								<button type="button" class="btn btn-primary" jsf:id="btn-send">Send
 									<f:ajax event="click" execute="@this message" render="@this message chat-history" listener="#{chatController.sendMessage()}" />
+								</button>
+								<button type="button" class="btn btn-primary" jsf:id="btn-update">Clock
+									<f:ajax event="click" execute="@this" render="@this" listener="#{chatController.updateClock()}" />
 								</button>
 					    	</span>
 						</div>
