@@ -3,14 +3,14 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
- 	 <h:head>
+ 	 <head jsf:id="head">
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
  		<title>Welcome to JSF 2.3 Chat!</title>
  		<h:outputStylesheet library="css" name="bootstrap.min.css" />
  		<script>
  			function handleMessage(message, channelName, messageEvent) {
-				console.log(message);
+				console.log(message, channelName, messageEvent);
 			}
 
 			function handleClose(code, channel, event) {
@@ -27,10 +27,11 @@
 				}
 			}
  		</script>
- 	</h:head>
-    <h:body>
+ 	</head>
+    <body jsf:id="body">
 		<!-- The JSF Socket is only one-way: from Server to Client (Spec 10.4.1.7).
-			We will need to do an AJAX call to broadcast a message  -->
+			We will need to do an AJAX call to broadcast a message;
+			Must be at body  -->
 		<f:websocket channel="chatChannel" onmessage="handleMessage" onclose="handleClose" />
 		
 	    <div class="container">
@@ -38,7 +39,6 @@
 				<h1>Welcome to JSF 2.3 Chat</h1>
 			</div>
 			<form class="form-vertical" jsf:id="form" jsf:prependId="false">
-				
 				<div class="row">
 					<div class="col-sm-12 center-block"><h2>Welcome #{userBean.name}, let's talk!</h2></div>
 				</div>
@@ -71,5 +71,5 @@
 				</div>
 			</form>
 		</div>
-    </h:body>
+    </body>
 </html>

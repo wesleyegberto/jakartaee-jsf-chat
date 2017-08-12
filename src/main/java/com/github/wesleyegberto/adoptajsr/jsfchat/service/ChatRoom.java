@@ -37,11 +37,6 @@ public class ChatRoom {
 		System.out.println("PushContext: " + chatChannel);
 	}
 
-	public void notifyNewUser(User user) {
-		System.out.println("PushContext: " + chatChannel);
-		LOG.info("New user in the room: " + user.getNickname());
-	}
-
 	public void onOpen(@Observes @Opened WebsocketEvent event) {
 		LOG.info("Opened connection " + event.getChannel() + " from " + event.getUser());
 	}
@@ -49,6 +44,11 @@ public class ChatRoom {
 	public void onClose(@Observes @Closed WebsocketEvent event) {
 		LOG.info("Closed connection " + event.getChannel() + " from " + event.getUser() + " with code "
 				+ event.getCloseCode());
+	}
+
+	public void notifyNewUser(User user) {
+		System.out.println("PushContext: " + chatChannel);
+		LOG.info("New user in the room: " + user.getNickname());
 	}
 	
 	public String getChatHistory() {
