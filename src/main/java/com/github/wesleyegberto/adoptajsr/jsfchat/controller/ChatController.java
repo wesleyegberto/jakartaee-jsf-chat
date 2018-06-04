@@ -21,14 +21,14 @@ public class ChatController implements Serializable {
 	private UserBean userBean;
 	@Inject
 	private ChatRoom chatRoom;
-	
+
 	@Inject
 	@Push(channel = "clock")
 	private PushContext clockChannel;
 
 	public ChatController() {
 	}
-	
+
 	public String getChatHistory() {
 		return chatRoom.getChatHistory();
 	}
@@ -40,7 +40,7 @@ public class ChatController implements Serializable {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	
+
 	public void updateClock() {
 		clockChannel.send(LocalDateTime.now());
 	}

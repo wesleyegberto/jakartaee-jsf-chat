@@ -1,8 +1,5 @@
 package com.github.wesleyegberto.adoptajsr.jsfchat.service;
 
-import java.util.Set;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
 import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
@@ -48,25 +45,7 @@ public class ChatRoom {
 	public void broadcastMessage(String user, String message) {
 		String fullMessage = String.format("%s: %s", user, message);
 		LOG.info("Broadcasting: " + fullMessage);
-		// Set<Future<Void>> status = 
 		chatChannel.send(fullMessage);
-		/*
-		if (status.isEmpty()) {
-			throw new RuntimeException("You are alone my friend.");
-		} else {
-			status.forEach(t -> {
-				try {
-					t.get();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-					throw new RuntimeException("The message was interrupted, please, try again.");
-				} catch (ExecutionException e) {
-					e.printStackTrace();
-					throw new RuntimeException("The message wasn't sent, please, try again.");
-				}
-			});
-		}
-		*/
 		chatHistory = chatHistory + "\n" + fullMessage;
 	}
 }

@@ -26,12 +26,14 @@ public class UserBean implements Serializable {
 	}
 
 	public String getName() {
-		if (user != null)
-			return user.getName();
-		return "Anonymous";
+		if (user == null)
+			return "Anonymous";
+		return user.getName();
 	}
 
 	public String getNickname() {
+		if (user == null)
+			return "Anonymous";
 		return user.getNickname();
 	}
 

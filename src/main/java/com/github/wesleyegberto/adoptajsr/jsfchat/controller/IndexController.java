@@ -78,8 +78,7 @@ public class IndexController {
 				createCookieToUser();
 			}
 			userBean.startSessionFor(user);
-			facesContext.addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_INFO, "All set", "User registered successfully."));
+			facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "All set", "User registered successfully."));
 			return goToChatRoom();
 		} catch (UsernameNotUniqueException ex) {
 			facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Nickname is already in use",
