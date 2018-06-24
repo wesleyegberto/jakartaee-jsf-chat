@@ -10,15 +10,30 @@
  		<h:outputStylesheet library="css" name="bootstrap.min.css" />
  		<script>
  			function handleOpen(event) {
- 	 			console.log(event);
+ 	 			console.log('Openning ', event);
  			}
- 			function handleMessage(message, channelName, event) {
-				console.log(message, channelName, event);
-				var textarea = document.getElementById('chat-history');
-				textarea.append('\n');
+ 			
+ 			function handleChatChannelMessage(message, event) {
+ 				const textarea = document.getElementById('chat-history');
 				textarea.append(message);
+				textarea.append('\n');
                 textarea.scrollTop = textarea.scrollHeight;
+	 		}
+	 		
+	 		function handleClockChannelMessage(message, event) {
+		 		alert('Time is: ' + message)
+		 	}
+		 	
+ 			function handleMessage(message, channelName, event) {
+ 	 			if (channelName === 'chatChannel') {
+ 	 				handleChatChannelMessage(message, event);
+ 	 			} else if (channelName === 'clock') {
+ 	 	 			handleClockChannelMessage(message, event);
+	 	 		} else {
+		 	 		alert('Unhandled channel: ' + channelName);
+		 	 	}
 			}
+			
 			function handleClose(code, channel, event) {
 				console.log('Handle close: ' + code, channel, event);
 				if (code == -1) {
@@ -35,9 +50,9 @@
     <body jsf:id="body">
 		<!-- The JSF Socket is only one-way: from Server to Client (Spec 10.4.1.7).
 			We will need to do an AJAX call to broadcast a message;
-			Must be at body  -->
+			Must be at body -->
 		<f:websocket scope="application" channel="chatChannel" onopen="handleOpen" onmessage="handleMessage" onclose="handleClose" />
-		
+		 
 		<f:websocket scope="application" channel="clock" onopen="handleOpen" onmessage="handleMessage" onclose="handleClose" />
 		
 	    <div class="container">
@@ -50,9 +65,7 @@
 				</div>
 				<div class="row">
 					<div class="col-sm-12">
-						<textarea class="form-control" rows="10" cols="70" jsf:readonly="true" style="resize:none;"
-							jsf:id="chat-history" jsf:name="chat-history" value="#{chatController.chatHistory}">
-						</textarea>
+						<textarea id="chat-history" class="form-control" rows="10" cols="70" readonly="true" style="resize:none;"></textarea>
 					</div>
 				</div>
 				<div class="row">
