@@ -1,5 +1,7 @@
 package com.github.wesleyegberto.adoptajsr.jsfchat.service;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
@@ -12,6 +14,7 @@ import com.github.wesleyegberto.adoptajsr.jsfchat.model.User;
 
 @ApplicationScoped
 public class ChatRoom {
+	private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
 	@Inject
 	private Logger LOG;
@@ -20,6 +23,10 @@ public class ChatRoom {
 	@Inject
 	@Push(channel = "chatChannel")
 	private PushContext chatChannel;
+
+	@Inject
+	@Push(channel = "clock")
+	private PushContext clockChannel;
 
 	private String chatHistory = "";
 
@@ -47,5 +54,9 @@ public class ChatRoom {
 		LOG.info("Broadcasting: " + fullMessage);
 		chatChannel.send(fullMessage);
 		chatHistory = chatHistory + "\n" + fullMessage;
+	}
+
+	public void broadcastClock() {
+		clockChannel.send(LocalDateTime.now().format(DATE_FORMAT));
 	}
 }

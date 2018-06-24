@@ -1,10 +1,7 @@
 package com.github.wesleyegberto.adoptajsr.jsfchat.controller;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
-import javax.faces.push.Push;
-import javax.faces.push.PushContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -22,10 +19,6 @@ public class ChatController implements Serializable {
 	@Inject
 	private ChatRoom chatRoom;
 
-	@Inject
-	@Push(channel = "clock")
-	private PushContext clockChannel;
-
 	public ChatController() {
 	}
 
@@ -42,7 +35,7 @@ public class ChatController implements Serializable {
 	}
 
 	public void updateClock() {
-		clockChannel.send(LocalDateTime.now());
+		this.chatRoom.broadcastClock();
 	}
 
 	public void sendMessage() {
