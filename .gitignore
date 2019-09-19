@@ -4,6 +4,8 @@ target/
 .tern-project
 .settings/
 .project
+.vscode/
+.DS_Store
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 

@@ -1,7 +1,10 @@
 # JSF 2.3 Chat
 
-Simple chat to show some new featues JSF 2.3 + CDI 2.0 + Bean Validation 2.0
+Simple chat to show some new features JSF 2.3 + CDI 2.0 + Bean Validation 2.0
 
+Start Glassfish: `./asadmin start-domain domain1`
+
+URL: `https://localhost:8080/jsf-chat`
 
 ### Features
 
@@ -15,7 +18,7 @@ Simple chat to show some new featues JSF 2.3 + CDI 2.0 + Bean Validation 2.0
 
 #### Some notes
 * Spec JSF 2.3: Section 5.9 "As of version 2.3 of this specification, JSF must run in a container that supports CDI version 2.0"
-
+* When running on Glassfish 5 sometimes we can get a NPE which could be related to this [issue](https://github.com/ocpsoft/rewrite/issues/265)
 
 
 ### Links
