@@ -17,13 +17,24 @@ URL: `https://localhost:8080/jsf-chat`
 
 
 #### Some notes
+
 * Spec JSF 2.3: Section 5.9 "As of version 2.3 of this specification, JSF must run in a container that supports CDI version 2.0"
 * When running on Glassfish 5 sometimes we can get a NPE which could be related to this [issue](https://github.com/ocpsoft/rewrite/issues/265)
 
+Migration:
+
+* Changed imports from `javax` to `jakarta`
+* Changed references from `javax` to `jakarta` in files: `web.xml`, `Context.xml` and `jsf_messages.properties`
+
+Tested on:
+
+* Java EE 8 (using refs `javax`)
+* Jakarta EE 8 (using refs `javax`)
+* Jakarta EE 9 (using refs `jakarta`)
 
 ### Links
-* https://www.javacodegeeks.com/2017/03/testing-java-ee-8-specifications.html
 
+* https://www.javacodegeeks.com/2017/03/testing-java-ee-8-specifications.html
 * https://dzone.com/articles/javaserver-faces-23-1
 * https://javaserverfaces.java.net/nonav/2.3/whatsnew.html
 * http://www.omnifaces-fans.org/p/jsf-23-tutorial.html
