@@ -2,9 +2,9 @@ package com.github.wesleyegberto.adoptajsr.jsfchat.controller;
 
 import java.io.Serializable;
 
-import javax.faces.view.ViewScoped;
-import javax.inject.Inject;
-import javax.inject.Named;
+import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
 import com.github.wesleyegberto.adoptajsr.jsfchat.service.ChatRoom;
 

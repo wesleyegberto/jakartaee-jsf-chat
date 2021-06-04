@@ -4,10 +4,10 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
-import javax.faces.annotation.ApplicationMap;
-import javax.inject.Inject;
+import jakarta.annotation.PostConstruct;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.faces.annotation.ApplicationMap;
+import jakarta.inject.Inject;
 
 import com.github.wesleyegberto.adoptajsr.jsfchat.UsernameNotUniqueException;
 import com.github.wesleyegberto.adoptajsr.jsfchat.model.User;

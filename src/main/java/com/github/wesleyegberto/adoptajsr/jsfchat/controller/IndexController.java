@@ -2,10 +2,10 @@ package com.github.wesleyegberto.adoptajsr.jsfchat.controller;
 
 import java.util.logging.Logger;
 
-import javax.enterprise.inject.Model;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
-import javax.inject.Inject;
+import jakarta.enterprise.inject.Model;
+import jakarta.faces.application.FacesMessage;
+import jakarta.faces.context.FacesContext;
+import jakarta.inject.Inject;
 
 import com.github.wesleyegberto.adoptajsr.jsfchat.CookieHelper;
 import com.github.wesleyegberto.adoptajsr.jsfchat.UsernameNotUniqueException;

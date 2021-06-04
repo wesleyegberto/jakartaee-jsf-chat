@@ -4,11 +4,11 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.logging.Logger;
 
-import javax.annotation.PostConstruct;
-import javax.enterprise.context.ApplicationScoped;
-import javax.faces.push.Push;
-import javax.faces.push.PushContext;
-import javax.inject.Inject;
+import jakarta.annotation.PostConstruct;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.faces.push.Push;
+import jakarta.faces.push.PushContext;
+import jakarta.inject.Inject;
 
 import com.github.wesleyegberto.adoptajsr.jsfchat.model.User;
 
@@ -44,7 +44,7 @@ public class ChatRoom {
 	public void notifyNewUser(User user) {
 		LOG.info("New user in the room: " + user.getNickname());
 	}
-	
+
 	public String getChatHistory() {
 		return chatHistory;
 	}
