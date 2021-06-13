@@ -15,6 +15,9 @@ URL: `https://localhost:8080/jsf-chat`
 * JSF 2.3 - f:webSocket
 * WebSocket 1.1 - Tomcat already provides
 
+Picture:
+
+![Print](img/chat-print.png)
 
 #### Some notes
 
