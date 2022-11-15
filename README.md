@@ -2,8 +2,6 @@
 
 Simple chat to show some new features JSF 2.3 + CDI 2.0 + Bean Validation 2.0
 
-Start Glassfish: `./asadmin start-domain domain1`
-
 URL: `https://localhost:8080/jsf-chat`
 
 ### Features
@@ -24,16 +22,9 @@ Picture:
 * Spec JSF 2.3: Section 5.9 "As of version 2.3 of this specification, JSF must run in a container that supports CDI version 2.0"
 * When running on Glassfish 5 sometimes we can get a NPE which could be related to this [issue](https://github.com/ocpsoft/rewrite/issues/265)
 
-Migration:
-
-* Changed imports from `javax` to `jakarta`
-* Changed references from `javax` to `jakarta` in files: `web.xml`, `Context.xml` and `jsf_messages.properties`
-
 Tested on:
 
-* Java EE 8 (using refs `javax`)
-* Jakarta EE 8 (using refs `javax`)
-* Jakarta EE 9 (using refs `jakarta`)
+* TomEE 8
 
 ### Links
 
@@ -44,3 +35,5 @@ Tested on:
 * http://arjan-tijms.omnifaces.org/p/jsf-23.html
 * http://www.omnifaces-fans.org/2015/12/jsf-23-default-producer-example.html
 * https://github.com/AnghelLeonard/JSF-2.3
+* https://tomee.apache.org/download.html
+
