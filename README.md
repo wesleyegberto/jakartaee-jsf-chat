@@ -34,6 +34,7 @@ Tested on:
 * Java EE 8 (using refs `javax`)
 * Jakarta EE 8 (using refs `javax`)
 * Jakarta EE 9 (using refs `jakarta`)
+* TomEE 8 (supports only Java EE 8 / Jakarta EE 8, use [this branch](https://github.com/wesleyegberto/jakartaee-jsf-chat/tree/tomee-8) to run)
 
 ### Links
 
