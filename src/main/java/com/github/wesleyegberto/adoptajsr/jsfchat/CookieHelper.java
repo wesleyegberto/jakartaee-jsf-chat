@@ -5,11 +5,11 @@ import java.util.Base64;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import jakarta.enterprise.context.RequestScoped;
-import jakarta.faces.annotation.RequestCookieMap;
-import jakarta.faces.context.ExternalContext;
-import jakarta.inject.Inject;
-import jakarta.servlet.http.Cookie;
+import javax.enterprise.context.RequestScoped;
+import javax.faces.annotation.RequestCookieMap;
+import javax.faces.context.ExternalContext;
+import javax.inject.Inject;
+import javax.servlet.http.Cookie;
 
 @RequestScoped
 public class CookieHelper {

@@ -1,7 +1,7 @@
 package com.github.wesleyegberto.adoptajsr.jsfchat;
 
-import jakarta.faces.annotation.FacesConfig;
-import jakarta.faces.annotation.FacesConfig.Version;
+import javax.faces.annotation.FacesConfig;
+import javax.faces.annotation.FacesConfig.Version;
 
 // To enable JSF 2.3 features, mainly EL and CDI artifacts injection
 @FacesConfig(version = Version.JSF_2_3)

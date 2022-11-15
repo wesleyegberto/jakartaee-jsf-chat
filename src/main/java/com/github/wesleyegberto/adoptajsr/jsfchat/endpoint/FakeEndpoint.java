@@ -1,8 +1,8 @@
 package com.github.wesleyegberto.adoptajsr.jsfchat.endpoint;
 
-import jakarta.websocket.Endpoint;
-import jakarta.websocket.EndpointConfig;
-import jakarta.websocket.Session;
+import javax.websocket.Endpoint;
+import javax.websocket.EndpointConfig;
+import javax.websocket.Session;
 
 public class FakeEndpoint extends Endpoint {
 	@Override

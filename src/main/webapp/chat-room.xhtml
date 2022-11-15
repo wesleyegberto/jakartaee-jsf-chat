@@ -12,18 +12,18 @@
  			function handleOpen(event) {
  	 			console.log('Openning ', event);
  			}
- 			
+
  			function handleChatChannelMessage(message, event) {
  				const textarea = document.getElementById('chat-history');
 				textarea.append(message);
 				textarea.append('\n');
                 textarea.scrollTop = textarea.scrollHeight;
 	 		}
-	 		
+
 	 		function handleClockChannelMessage(message, event) {
 		 		alert('Time is: ' + message)
 		 	}
-		 	
+
  			function handleMessage(message, channelName, event) {
  	 			if (channelName === 'chatChannel') {
  	 				handleChatChannelMessage(message, event);
@@ -33,7 +33,7 @@
 		 	 		alert('Unhandled channel: ' + channelName);
 		 	 	}
 			}
-			
+
 			function handleClose(code, channel, event) {
 				console.log('Handle close: ' + code, channel, event);
 				if (code == -1) {
@@ -52,9 +52,9 @@
 			We will need to do an AJAX call to broadcast a message;
 			Must be at body -->
 		<f:websocket scope="application" channel="chatChannel" onopen="handleOpen" onmessage="handleMessage" onclose="handleClose" />
-		 
+
 		<f:websocket scope="application" channel="clock" onopen="handleOpen" onmessage="handleMessage" onclose="handleClose" />
-		
+
 	    <div class="container">
 	    	<div class="jumbotron">
 				<h1>Welcome to JSF 2.3 Chat</h1>
@@ -84,7 +84,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="row">
 					<div class="col-sm-12">
 						<h:messages globalOnly="true" errorClass="alert alert-danger" warnClass="alert alert-warning" infoClass="alert alert-success"

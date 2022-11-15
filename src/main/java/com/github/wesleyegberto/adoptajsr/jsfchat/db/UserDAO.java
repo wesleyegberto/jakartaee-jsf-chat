@@ -1,36 +1,25 @@
 package com.github.wesleyegberto.adoptajsr.jsfchat.db;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import jakarta.annotation.PostConstruct;
-import jakarta.enterprise.context.RequestScoped;
-import jakarta.faces.annotation.ApplicationMap;
-import jakarta.inject.Inject;
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 
 import com.github.wesleyegberto.adoptajsr.jsfchat.UsernameNotUniqueException;
 import com.github.wesleyegberto.adoptajsr.jsfchat.model.User;
 
-@RequestScoped
+@ApplicationScoped
 public class UserDAO {
-
 	@Inject
 	private Logger LOG;
 
 	private final Map<String, Object> USER_DB;
 
 	public UserDAO() {
-		USER_DB = null;
-	}
-
-	@Inject
-	public UserDAO(@ApplicationMap Map<String, Object> applicationMap) {
-		this.USER_DB = Collections.synchronizedMap(applicationMap);
-	}
-
-	@PostConstruct
-	public void postConstruct() {
+		this.USER_DB = Collections.synchronizedMap(new HashMap<>());
 	}
 
 	public boolean isNicknameUsed(String nickname) {

@@ -1,10 +1,10 @@
 package com.github.wesleyegberto.adoptajsr.jsfchat.converter;
 
-import jakarta.faces.component.UIComponent;
-import jakarta.faces.context.FacesContext;
-import jakarta.faces.convert.Converter;
-import jakarta.faces.convert.FacesConverter;
-import jakarta.inject.Inject;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.convert.Converter;
+import javax.faces.convert.FacesConverter;
+import javax.inject.Inject;
 
 import com.github.wesleyegberto.adoptajsr.jsfchat.db.UserDAO;
 import com.github.wesleyegberto.adoptajsr.jsfchat.model.User;
